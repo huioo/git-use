@@ -166,3 +166,14 @@ Git仓库中，对仓库中某些文件做些修改,在完成了一个阶段的�
         modified:   CONTRIBUTING.md
     ```
    怎么回事？ 现在 `CONTRIBUTING.md` 文件同时出现在暂存区和非暂存区。 这怎么可能呢？ 好吧，实际上 Git 只不过暂存了你运行 `git add` 命令时的版本， 如果你现在提交，`CONTRIBUTING.md` 的版本是你最后一次运行 `git add` 命令时的那个版本，而不是你运行 `git commit` 时，在工作目录中的当前版本。
+
+    ```command
+    $ git add CONTRIBUTING.md
+    $ git status
+    On branch master
+    Changes to be committed:
+    (use "git reset HEAD <file>..." to unstage)
+
+        new file:   README
+        modified:   CONTRIBUTING.md
+    ``` 
