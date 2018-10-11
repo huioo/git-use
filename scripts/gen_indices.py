@@ -4,10 +4,10 @@ import re
 current_path = os.path.abspath(__file__)
 root_path = os.path.dirname(os.path.dirname(current_path))
 target = os.path.join(root_path, 'README.md')
-headline_pat = re.compile(r'#+ [\dA]')
+headline_pat = re.compile(r'#+ (?:[\d\.]{2}|A\d)')
 
-def fprint(base, level, fmt='{0}- [{1}]({2}{3})'):
-    print(fmt.format((level-1)*'  ', base, level*'#', base.replace('.', '').replace(' ', '-')))
+def fprint(base, level, fmt='{0}- [{1}](#{2})'):
+    print(fmt.format((level-1)*'  ', base, base.replace('.', '').replace(':', '').replace(' ', '-')))
 
 print(target)
 with open(target, 'r', encoding='utf8') as fp:
